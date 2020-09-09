@@ -1,0 +1,110 @@
+import java.util.Random;
+
+public class SDemo {
+    public static void main(String args[])
+    {
+        //sMass();
+        //command(args);
+        //gaRMon();
+        //random();
+        System.out.print(factorial(5));
+    }
+    // метод для третьего  задания
+    static void sMass()
+    {
+        int[] mas ={5,2,4};
+        int s = 0,j = 0 , kn = 0;
+        for (int i = 0;i < mas.length;i++)
+        {
+            s += mas[i];
+        }
+        System.out.println(s);
+        s = 0;
+        while(j < mas.length)
+        {
+            s += mas[j];
+            j++;
+        }
+        System.out.println(s);
+        s = 0;
+        do{
+            s += mas[kn];
+            kn++;
+        }while (kn< mas.length);
+        System.out.println(s);
+    }
+    // метод для четвертого задания
+    static void command(String[] s)
+    {
+        for (int i = 0;i< s.length;i++)
+        {
+            System.out.println(s[i]);
+        }
+    }
+    // метод для пятого задания
+    static void gaRMon()
+    {
+        for (int i = 1; i< 10;i++)
+        {
+            String messag;
+            System.out.println((messag =String.format("%.2f",(double)1/i)));
+        }
+    }
+    //метод для шестого задания
+    static void random()
+    {
+        int[] array = new int [12];
+        for( int i = 0; i < array.length;i++)
+        {
+            array[i]= ((int)(Math.random()*12));
+            System.out.print(array[i]+ " ");
+        }
+        System.out.println();
+        for(int i = array.length-1 ; i > 0 ; i--){
+            for(int j = 0 ; j < i ; j++){
+
+            if( array[j] > array[j+1] ){
+                int tmp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = tmp;
+            }
+        }
+    }
+        for( int j= 0; j < array.length;j++)
+        {
+            System.out.print(array[j]+ " ");
+        }
+        System.out.println();
+        System.out.println("Класс рандом");
+        for (int i = 0; i < array.length;i++)
+        {
+            Random random = new Random();
+            array[i]= random.nextInt(50);
+            System.out.print(array[i]+ " ");
+        }
+        System.out.println();
+        for(int i = array.length-1 ; i > 0 ; i--){
+            for(int j = 0 ; j < i ; j++){
+
+                if( array[j] > array[j+1] ){
+                    int tmp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = tmp;
+                }
+            }
+        }
+        for( int j= 0; j < array.length;j++)
+        {
+            System.out.print(array[j]+ " ");
+        }
+    }
+    // метод для седьмого задания
+    static int factorial(int x)
+    {
+        if ( x <= 1)
+        {
+            return 1;
+        }
+        return x * factorial(x-1);
+    }
+}
