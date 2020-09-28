@@ -13,6 +13,7 @@ public class Drawing extends JFrame {
         setBounds(400,400,600 , 600);
         setVisible(true);
         add(new MyComponent());
+        
     }
     public String add(String []arr){
         return arr[0];
