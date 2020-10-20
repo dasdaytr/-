@@ -1,8 +1,9 @@
 package laba14;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Student implements Comparable{
+public class Student implements Comparator  {
     private int ID;
      public Student(int ID){
         this.ID = ID;
@@ -10,15 +11,9 @@ public class Student implements Comparable{
 
 
     @Override
-    public int compare(Object o,int n) {
-
-
-            Student student = (Student)o;
-            return student.getID();
-
-
+    public int compare(Object o1, Object o2) {
+        return 0;
     }
-
 
     @Override
     public boolean equals(Object o) {

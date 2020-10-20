@@ -10,6 +10,7 @@ public class Main {
         SortStudent sort = new SortStudent();
         Student found;
         Student a = new Student(2000);
+
         System.out.println("Быстрая сортировка.\nВведите колличество студентов");
         Scanner scanner = new Scanner(System.in);
         int k = scanner.nextInt();
@@ -25,7 +26,7 @@ public class Main {
             System.out.print(students[i].getID()+" ");
         }
         System.out.println();
-        if ((Student)sort.recursialinearSearch(students,a,0)== null)
+        if (sort.recursialinearSearch(students,a,0)== null)
             System.out.println("Такого числа не нашлось");
         else{
             found =(Student)sort.recursialinearSearch(students,a,0);

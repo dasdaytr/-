@@ -1,20 +1,12 @@
 package laba14;
-public class SortStudent implements Comparator {
-    public int compareTo(Student one, Student two,int i) {
-        switch (i) {
-            case 1:
-                if (one.getID() < two.getID()) {
-                    return 1;
-                }
-                if (one.getID() > two.getID()) {
-                    return 2;
-                }
-            case 2:
-                if (one.getID() > two.getID()) return 1;
-        }
-        return 3;
-    }
-    public Comparable binarySearch(Comparable []student, Comparable elementToSearch){
+
+import java.util.Comparator;
+
+public class SortStudent implements Comparator  {
+
+
+
+    public Comparator binarySearch(Comparator []student, Comparator elementToSearch){
         int firstIndex = 0;
         int lastIndex = student.length - 1;
         while(firstIndex <= lastIndex){
@@ -29,13 +21,14 @@ public class SortStudent implements Comparator {
         }
         return null;
     }
-    public  Comparable recursiveBinarySearch(Comparable []student,int firstElement,int lastElement,Comparable elementToSearch){
+    public  Comparator recursiveBinarySearch(Comparator []student,int firstElement,int lastElement,Comparator elementToSearch){
         if (lastElement >= firstElement){
             int mid = firstElement + (lastElement - firstElement) /2;
             if (student[mid].equals(elementToSearch)){
                 return student[mid];
             }
-            if (student[mid].compare(student[mid],1)> elementToSearch.compare(elementToSearch,1)){
+
+            if (compare((Student)student[mid],(Student)elementToSearch) >0){
                 return recursiveBinarySearch(student,firstElement,mid-1,elementToSearch);
 
             }
@@ -54,10 +47,10 @@ public class SortStudent implements Comparator {
         Student student = students[middle];
         int i = low, j = high;
         while (i <= j){
-            while (compareTo(students[i],student,1 )== 1){
+            while (compare(students[i],student)>0 ){
                 i++;
             }
-            while (compareTo(students[j],student,1) ==2){
+            while (compare(students[j],student) <0){
                 j--;
             }
             if (i <= j){
@@ -76,7 +69,7 @@ public class SortStudent implements Comparator {
         }
 
     }
-    public Comparable linearSearch(Comparable []students,Comparable elementToSearch){
+    public Comparator linearSearch(Comparator []students,Comparator elementToSearch){
         for (int index = 0; index <students.length; index ++){
             if (students[index].equals(elementToSearch)){
                 return students[index];
@@ -84,7 +77,7 @@ public class SortStudent implements Comparator {
         }
         return null;
     }
-    public Comparable recursialinearSearch(Comparable []students,Comparable elementToSearch,int index){
+    public Comparator recursialinearSearch(Comparator []students,Comparator elementToSearch,int index){
         if (students[index].equals(elementToSearch)){
             return students[index];
 
@@ -95,5 +88,10 @@ public class SortStudent implements Comparator {
         }
         return recursialinearSearch(students,elementToSearch,index);
 
+    }
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        return ((Student)o1).getID() - ((Student)o2).getID();
     }
 }

@@ -1,26 +1,17 @@
 package laba13_2_2;
 
 
+import java.util.Comparator;
+
+public class SortingStudentsByGPA implements Comparator <Student> {
 
 
-public class SortingStudentsByGPA implements Comparator{
-
-    public int compareTo(Student one, Student two,int i) {
-        switch (i){
-            case 1:
-                if (one.getSrBall() > two.getSrBall()){
-                    return 1;
-                }
-                if (one.getSrBall() <two.getSrBall()){
-                    return 2;
-                }
-            case 2:
-                if (one.getSrBall() > two.getSrBall()) return 1;
-        }
-        return 3;
-
+    @Override
+    public int compare(Student o1, Student o2) {
+        return o1.getSrBall() - o2.getSrBall();
     }
-    public void quicksort(Student []students,int low,int high){
+
+    public void quicksort(Student []students, int low, int high){
         if (students.length == 0){
             return;
         }
@@ -31,10 +22,10 @@ public class SortingStudentsByGPA implements Comparator{
         Student student = students[middle];
         int i = low, j = high;
         while (i <= j){
-            while (compareTo(students[i],student,1 )== 1){
+            while (compare(students[i],student)>0){
                     i++;
             }
-            while (compareTo(students[j],student,1) ==2){
+            while (compare(students[j],student) <0){
                 j--;
             }
             if (i <= j){
@@ -76,7 +67,7 @@ public class SortingStudentsByGPA implements Comparator{
         int rightIndex = 0;
         for (int i = left; i< right+ 1; i ++){
             if (leftIndex < lengthLeft && rightIndex < lengthRigiht){
-                if (compareTo(leftStudents[leftIndex],rightStudent[rightIndex],2)==1){
+                if (compare(leftStudents[leftIndex],rightStudent[rightIndex])>0){
                     student[i] = leftStudents[leftIndex];
                     leftIndex ++;
                 }
